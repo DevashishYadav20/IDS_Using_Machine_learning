@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5xb+832xZJBjmLMtmE3NI2g5lsAij+l+5M5ONxEr" crossorigin="anonymous">
+  <title>MIT ADT INTRUSION DETECTION SYSTEM</title>
+  <style>
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 3rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px #000000;
+    }
+    form {
+      width: 100%;
+      max-width: 500px;
+      animation: fadeIn 1s;
+    }
+    input[type=text] {
+      border: 2px solid #007bff;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+      outline: none;
+      height: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 20px;
+      margin-bottom: 10px;
+      animation: pulse 2s infinite;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      border-radius: 20px;
+      height: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 100%;
+      box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.5);
+      transition: all 0.2s ease-in-out;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.75);
+      transform: translateY(-2px);
+    }
+    .prediction {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px #000000;
+    }
+    .safe {
+      color: #28a745;
+    }
+    .malicious {
+      color: #dc3545;
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>MIT ADT INTRUSION DETECTION SYSTEM</h1>
+  <form action="/" method="post">
+    <div class="form-group animate__animated animate__fadeInUp">
+      <input type="text" class="form-control" name="query" placeholder="Enter URL or payload to check" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mt-4 animate__animated animate__fadeInUp">Check Payload</button>
+  </form>
+  {% if prediction %}
+    <div class="prediction animate__animated animate__fadeInUp">
+      Result: <span class="{{ 'safe' if prediction == 'Safe' else 'malicious' }}">{{ prediction }}</span>
+    </div>
+  {% endif %}
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gD"></script>
+</body>
+</html>
